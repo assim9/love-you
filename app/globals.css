@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple-950: #120018;
+  --purple-900: #160020;
+  --purple-800: #200030;
+  --purple-700: #2e0042;
+  --rose-400:  #ff4d8d;
+  --rose-300:  #ff80b0;
+  --rose-200:  #ffb3cc;
+  --gold-400:  #ffd740;
+  --gold-500:  #ffca28;
+  --gold-600:  #ffa000;
+  --white: #ffffff;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  background: var(--purple-900);
+  color: var(--white);
+}
+
+/* Hide default cursor — JS renders a custom heart cursor */
+html, body {
+  cursor: none;
+}
+
+/* Ensure clickable elements show pointer on fallback */
+button, a, [role="button"] {
+  cursor: pointer;
+}
