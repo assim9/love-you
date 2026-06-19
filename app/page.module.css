@@ -102,10 +102,10 @@
 
 /* "A SURPRISE JUST FOR YOU" */
 .eyebrow {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.65rem, 1.4vw, 0.8rem);
-  font-weight: 400;
-  letter-spacing: 0.28em;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.65rem, 1.2vw, 0.78rem);
+  font-weight: 500;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: #ff85a8;
   opacity: 0.85;
@@ -132,11 +132,12 @@
 
 /* "Move your mouse & feel the magic ✨" */
 .subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: clamp(0.85rem, 1.6vw, 1rem);
   color: rgba(210, 160, 195, 0.8);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
 }
 
 /* ══════════════════════════════════════════
@@ -312,10 +313,11 @@
 
 /* ── Gift hint text ── */
 .giftHint {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.78rem, 1.8vw, 0.95rem);
   color: rgba(210, 150, 190, 0.75);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   animation: hintPulse 2s ease-in-out infinite;
   transition: opacity 0.4s ease;
 }
@@ -401,7 +403,7 @@
 }
 
 .word {
-  font-family: 'Great Vibes', 'Cormorant Garamond', serif;
+  font-family: 'Great Vibes', 'Dancing Script', cursive;
   font-size: clamp(3rem, 9vw, 7rem);
   font-weight: 400;
   background: linear-gradient(145deg, #ffe566 0%, #ffca28 40%, #ff9800 75%, #ff6d00 100%);
@@ -421,12 +423,14 @@
 }
 
 .subMessage {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+  font-weight: 300;
   color: rgba(220, 185, 210, 0.92);
-  line-height: 1.9;
-  font-style: italic;
-  max-width: 600px;
+  line-height: 2;
+  font-style: normal;
+  max-width: 580px;
+  letter-spacing: 0.01em;
   opacity: 0;
 }
 
@@ -441,6 +445,7 @@
 .signature {
   font-family: 'Dancing Script', cursive;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 600;
   color: rgba(255, 200, 140, 0.8);
   letter-spacing: 0.04em;
   opacity: 0;
