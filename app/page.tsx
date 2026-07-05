@@ -248,14 +248,6 @@ export default function LoveYouPage() {
     return () => clearInterval(iv);
   }, []);
 
-  /* ── Escape to close ── */
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && overlayVisible) closeGift(); };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [overlayVisible]);
-
   /* ── Fireworks ── */
   const stopFireworks = useCallback(() => {
     fwRunningRef.current = false;
@@ -341,29 +333,36 @@ export default function LoveYouPage() {
     burst();
   }, [stopFireworks]);
 
-  /* ── Overlay message staging ── */
-  useEffect(() => {
-    if (!overlayVisible) { setWordsShown(0); setMsgStage(0); return; }
-    setWordsShown(0); setMsgStage(1);
-    WORDS.forEach((_, i) => setTimeout(() => setWordsShown(i + 1), 200 + i * 390));
-    setTimeout(() => setMsgStage(2), 2300);
-    setTimeout(() => setMsgStage(3), 3100);
-  }, [overlayVisible]);
-
   /* ── Gift open / close ── */
   const openGift = useCallback(() => {
     setGiftOpened(true);
     setTimeout(() => {
       startFireworks();
-      setTimeout(() => setOverlayVisible(true), 600);
+      setTimeout(() => {
+        setOverlayVisible(true);
+        setWordsShown(0);
+        setMsgStage(1);
+        WORDS.forEach((_, i) => setTimeout(() => setWordsShown(i + 1), 200 + i * 390));
+        setTimeout(() => setMsgStage(2), 2300);
+        setTimeout(() => setMsgStage(3), 3100);
+      }, 600);
     }, 400);
   }, [startFireworks]);
 
   const closeGift = useCallback(() => {
     setOverlayVisible(false);
+    setWordsShown(0);
+    setMsgStage(0);
     stopFireworks();
     setTimeout(() => setGiftOpened(false), 500);
   }, [stopFireworks]);
+
+  /* ── Escape to close ── */
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && overlayVisible) closeGift(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [overlayVisible, closeGift]);
 
   useEffect(() => () => {
     cancelAnimationFrame(bgAnimRef.current);
